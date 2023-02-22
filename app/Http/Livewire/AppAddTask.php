@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Task;
 use Livewire\Component;
 
 class AppAddTask extends Component
@@ -24,4 +25,5 @@ class AppAddTask extends Component
 
         $this->emit('taskAdded');
     }
+
 }

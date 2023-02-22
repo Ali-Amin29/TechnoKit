@@ -1,4 +1,6 @@
 <div>
+
+    {{--  Add new Task With Live wire   --}}
     <h3 class="text-center">Add New Task</h3>
 
 

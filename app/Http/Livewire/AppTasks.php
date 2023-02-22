@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Task;
 use Livewire\Component;
 
 class AppTasks extends Component
@@ -17,5 +18,10 @@ class AppTasks extends Component
             'totalTasks' => $totalTasks,
             'tasks' => $tasks
         ]);
+    }
+    public function DeleteTask($id)
+    {
+        $task=Task::find($id);
+        $task->delete();
     }
 }
