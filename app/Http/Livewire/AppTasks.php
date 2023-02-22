@@ -13,7 +13,7 @@ class AppTasks extends Component
     public function render()
     {
         $totalTasks = auth()->user()->tasks()->count();
-        $tasks = auth()->user()->tasks()->latest()->get()->reverse();
+        $tasks = auth()->user()->tasks()->orderBy('order_position','desc')->get()->reverse();
         return view('livewire.app-tasks', [
             'totalTasks' => $totalTasks,
             'tasks' => $tasks
@@ -23,5 +23,16 @@ class AppTasks extends Component
     {
         $task=Task::find($id);
         $task->delete();
+    }
+
+    public function updateTaskOrder($items)
+    {
+        // dd($items);
+        foreach ($items as $item)
+        {
+            Task::find($item['value'])->update(['order_position' => $item['order']]);
+
+        }
+
     }
 }

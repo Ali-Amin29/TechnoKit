@@ -10,11 +10,12 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody wire:sortable="updateTaskOrder">
             @foreach ($tasks as $task)
-                <tr>
-                    <td scope="row">{{ $loop->iteration }}</td>
-                    <td>{{ $task->title }}</td>
+                <tr wire:sortable.item="{{ $task->id }}" wire:key="task-{{ $task->id }}">
+                    {{--  <td scope="row">{{ $loop->iteration }}</td>  --}}
+                    <td scope="row">{{ $task->id }}</td>
+                    <td wire:sortable.handle>{{ $task->title }}</td>
                     {{--  <td>{{ $task->status == true ? 'Completed' : 'Pending' }}</td>  --}}
 
                     <td> <button wire:click.prevent="DeleteTask({{ $task->id }})"
