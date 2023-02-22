@@ -31,7 +31,6 @@ class AppTasks extends Component
         foreach ($items as $item)
         {
             Task::find($item['value'])->update(['order_position' => $item['order']]);
-
         }
 
     }
